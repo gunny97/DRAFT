@@ -137,10 +137,9 @@ class Solver(object):
         stream_handler = logging.StreamHandler()
         stream_handler.setFormatter(formatter)
         self.logger.addHandler(stream_handler)
-        file_handler = logging.FileHandler(f'./hyperparameters_tuning/memory_item_numbers/number_{self.dataset}.log')
-        file_handler.setFormatter(formatter)
-        self.logger.addHandler(file_handler)
-
+        # file_handler = logging.FileHandler(f'./hyperparameters_tuning/memory_item_numbers/number_{self.dataset}.log')
+        # file_handler.setFormatter(formatter)
+        # self.logger.addHandler(file_handler)
 
     def build_model(self,memory_init_embedding):
         
@@ -333,12 +332,12 @@ class Solver(object):
         rec_loss_list = np.concatenate(rec_loss_list,axis=0).reshape(-1)
 
 
-        reconstruct_path = f"./hyperparameters_tuning/reconstruction/{self.dataset}_"
-        np.save(reconstruct_path+'reconstructed_output', reconstructed_output)
-        np.save(reconstruct_path+'original_output', original_output)
-        np.save(reconstruct_path+'rec_loss',rec_loss_list)
-        np.save(reconstruct_path+'gt_labels',test_labels)
-        np.save(reconstruct_path+'anomaly_score_only_gathering_loss',test_energy)
+        #reconstruct_path = f"./hyperparameters_tuning/reconstruction/{self.dataset}_"
+        #np.save(reconstruct_path+'reconstructed_output', reconstructed_output)
+        #np.save(reconstruct_path+'original_output', original_output)
+        #np.save(reconstruct_path+'rec_loss',rec_loss_list)
+        #np.save(reconstruct_path+'gt_labels',test_labels)
+        #np.save(reconstruct_path+'anomaly_score_only_gathering_loss',test_energy)
         
         distance_with_q = np.concatenate(distance_with_q,axis=0).reshape(-1)
 
@@ -350,12 +349,12 @@ class Solver(object):
             else:
                 abnormal_dist.append(distance_with_q[i])
 
-        dist_path = f"./hyperparameters_tuning/norm_abnorm_distribtuion/{self.dataset}_"
-        normal_dist = np.array(normal_dist)
-        abnormal_dist = np.array(abnormal_dist)
+        #dist_path = f"./hyperparameters_tuning/norm_abnorm_distribtuion/{self.dataset}_"
+        #normal_dist = np.array(normal_dist)
+        #abnormal_dist = np.array(abnormal_dist)
 
-        np.save(dist_path+'normal_dist_only_gl', normal_dist)
-        np.save(dist_path+'abnormal_dist_only_gl', abnormal_dist)
+        #np.save(dist_path+'normal_dist_only_gl', normal_dist)
+        #np.save(dist_path+'abnormal_dist_only_gl', abnormal_dist)
 
         pred = (test_energy > thresh).astype(int)
 
