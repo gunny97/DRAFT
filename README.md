@@ -16,12 +16,6 @@ With the growing volume of diverse information, the demand for classifying arbit
 
 (b) Illustration of MQR in two-dimensional space. A circle represents the normalized embedding space of texts in Data Collection. For each query, passages only within an angle size θ, calculated as a threshold from n query vectors, are retrieved as positive samples, while others are classified as negative samples.
 
-## Main Result
-Table presents the evaluation results of the few-shot classification tasks on diverse topics. We evaluate the F1 score for all 291 subtopics and aggregate the results based on the five major categories. Among the baselines with billions of parameters, except for InstructGPT 175B 1-shot, DRAFT, only with millions of parameters, demonstrates superior performance compared to the others in all categories. When considering the average rankings across five major categories, DRAFT achieves the highest rank of 1.4, followed by InstructGPT 175B 1-shot with an average rank of 1.6, implying DRAFT’s optimality.
-<p align="center">
-<img src=".\png\DRAFT_results.png" height = "450" alt="" align=center />
-</p>
-
 ## Citation
 If you find this repo useful, please cite our paper. 
 
